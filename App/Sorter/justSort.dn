@@ -1,12 +1,12 @@
-data Object{
+data Thing{
   int atr1
   char atr2[]
 }
 
 component provides intf.Sorter requires data.query.Sort sorter{
 
-  Object[] sort(Object array[]){
-    sorter.sort(array[], Object.atr1, true)
+  Thing[] sort(Object array[]){
+    sorter.sort(array[], Thing.atr1, true)
     return array[]
   }
 }

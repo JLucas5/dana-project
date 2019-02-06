@@ -1,4 +1,4 @@
-data Object{
+data Thing{
   int atr1
   char atr2[]
 }
