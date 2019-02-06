@@ -1,0 +1,5 @@
+interface Operator{
+
+  int operation()
+
+}

@@ -1,0 +1,6 @@
+component provides intf.Operator{
+
+  int operation(int first, int second){
+    return (first + second)
+  }
+}

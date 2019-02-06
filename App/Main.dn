@@ -1,3 +1,19 @@
 uses App
 
-component provides
+data Object{
+  int atr1
+  int atr2
+}
+
+component provides App requires intf.Sorter sorter, data.csv.CSVParser csvParser, intf.Operator operator{
+
+Object array[] = csvParser.parseDocument("data.txt", "," , Object)
+
+
+  for(int i = 0; i<array.arrayLength(); i++ ){
+    array[i].atr1 = operator.operation(array[i].atr1, array[i].atr2)
+  }
+
+  sorter.sort(array[])
+
+}
