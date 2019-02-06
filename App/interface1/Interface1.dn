@@ -1,0 +1,12 @@
+component provides Interface1 requires io.Output out{
+
+  int[] Interface1:method(int array[]){
+
+    int thisArray[] = clone array
+
+    for(int i = 0; i < thisArray.arrayLength; i++){
+      thisArray[i] = thisArray[i]/2
+    }
+    return thisArray
+  }
+}
