@@ -1,0 +1,10 @@
+component provides Interface1{
+
+  int Interface1:method(int array[]){
+    for(int i = 0; i < array.arrayLength; i++){
+      array[i] = array[i]/2
+
+    }
+    return 0
+  }
+}

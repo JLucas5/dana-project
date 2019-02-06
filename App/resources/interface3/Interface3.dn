@@ -1,0 +1,5 @@
+interface Interface3{
+
+int method(int array[])
+
+}

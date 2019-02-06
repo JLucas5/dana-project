@@ -1,5 +1,0 @@
-interface Operator{
-
-  int operation()
-
-}

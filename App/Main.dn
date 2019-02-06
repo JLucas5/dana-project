@@ -1,21 +1,21 @@
+component provides App requires time.DateUtil dateUtil, time.Calendar cal, util.RandomInt random, interface1.Interface1 intf1, interface2.Interface2 intf2, interface3.Interface3 intf3{
 
-data Thing{
-  int atr1
-  int atr2
-}
+int App:main(AppParam params[]){
 
-component provides App requires intf.Sorter sorter, data.csv.CSVParser csvParser, intf.Operator operator{
+      int array[10000]
 
-int App:Main(AppParam params[]){
+      random.setSeed(dateUtil.toMilliseconds(cal.getTime()))
 
-    Thing array[] = csvParser.parseDocument("data.txt", "," , Thing)
-
-
-      for(int i = 0; i<array.arrayLength(); i++ ){
-        array[i].atr1 = operator.operation(array[i].atr1, array[i].atr2)
+      for(int i = 0; i < 10000; i++ ){
+        array[i]= random.get(10000)
       }
 
-      sorter.sort(array)
+      intf1.method(array)
 
+      intf2.method(array)
+      
+      intf3.method(array)
+
+      return 0
     }
 }
