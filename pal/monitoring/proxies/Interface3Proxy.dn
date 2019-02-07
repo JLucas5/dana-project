@@ -51,7 +51,7 @@ component provides interface3.Interface3, monitoring.BeingMonitored requires io.
 			DateTime dateEnd = cal.getTime()
 			DateTime dateDiff = dateUtil.diff(dateStart, dateEnd)
 
-			monitor.addMetric(dateUtil.toMilliseconds(1/dateDiff), 1, false)
+			monitor.addMetric(dateUtil.toMilliseconds(dateDiff), 1, false)
 			monitor.addEvent("event_example", 1)
 
 			return thisArray
