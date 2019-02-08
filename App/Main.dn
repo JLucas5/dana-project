@@ -12,12 +12,14 @@ int App:main(AppParam params[]){
 
       while(true){
 
-      intf1.method(array)
+      asynch::intf1.method(array, this.thread)
 
-      intf2.method(array)
+      asynch::intf2.method(array, this.thread)
 
-      intf3.method(array)
+      asynch::intf3.method(array, this.thread)
 
+      this.thread.wait()
+      
       }
 
       return 0

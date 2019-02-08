@@ -1,12 +1,13 @@
 component provides Interface2 requires io.Output out{
 
-  int[] Interface2:method(int array[]){
+  int[] Interface2:method(int array[], Thread thread){
     int thisArray[] = clone array
     for(int i = 0; i < thisArray.arrayLength; i++){
       for(int j = 0; j < 100; j++){
         thisArray[i] = thisArray[i] + 1
       }
     }
+    thread.signal()
     return thisArray
   }
 }

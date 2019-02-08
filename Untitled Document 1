@@ -1,0 +1,16 @@
+dnc . -sp "../repository;../App"
+
+dana  -sp "../repository;../App" InteractivePerception.o ../App/Main.o
+
+add_proxy |../pal/monitoring/proxies/Interface1Proxy.o|*(*:interface1.Interface1[0]:*)|
+add_proxy |../pal/monitoring/proxies/Interface2Proxy.o|*(*:interface2.Interface2[0]:*)|
+add_proxy |../pal/monitoring/proxies/Interface3Proxy.o|*(*:interface3.Interface3[0]:*)|
+
+
+
+add_proxy |../pal/monitoring/proxies/Interface1Proxy.o|*(*:interface1.Interface1[0]:*)|../pal/monitoring/proxies/Interface2Proxy.o|*(*:interface2.Interface2[0]:*)|../pal/monitoring/proxies/Interface3Proxy.o|*(*:interface3.Interface3[0]:*)|
+
+
+get_proxies
+
+get_perception_data
