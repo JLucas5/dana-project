@@ -1,0 +1,27 @@
+component provides App requires time.DateUtil dateUtil, time.Calendar cal, util.RandomInt random, interface1.Interface1 intf1, interface2.Interface2 intf2, interface3.Interface3 intf3{
+
+int App:main(AppParam params[]){
+
+      transfer int array[10000]
+
+      random.setSeed(dateUtil.toMilliseconds(cal.getTime()))
+
+      for(int i = 0; i < 10000; i++ ){
+        array[i]= random.get(10000)
+      }
+
+      while(true){
+
+      asynch::intf1.method(array, this.thread)
+
+      asynch::intf2.method(array, this.thread)
+
+      asynch::intf3.method(array, this.thread)
+
+      this.thread.wait()
+      
+      }
+
+      return 0
+    }
+}

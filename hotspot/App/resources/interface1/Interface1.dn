@@ -1,0 +1,5 @@
+interface Interface1{
+
+int[] method(int array[], Thread thread)
+
+}

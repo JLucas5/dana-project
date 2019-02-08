@@ -1,0 +1,24 @@
+component provides Interface3 requires io.Output out{
+
+  int[] Interface3:method(int array[], Thread thread){
+    int thisArray[] = clone array
+    int n = thisArray.arrayLength
+    int temp = 0
+
+    for(int i = 0; i < n; i++){
+
+      for(int j = 1; j < n-1; j++){
+
+        if(thisArray[j-1] > thisArray[j]){
+
+          temp = thisArray[j-1]
+          thisArray[j-1] = thisArray[j]
+          thisArray[j] = temp
+
+        }
+      }
+    }
+    thread.signal()
+    return thisArray
+  }
+}
