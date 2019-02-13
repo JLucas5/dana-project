@@ -1,0 +1,21 @@
+component provides Coordinator requires time.DateUtil dateUtil, time.Calendar cal, util.RandomInt random, interface1.Interface1 intf1, interface2.Interface2 intf2, interface3.Interface3 intf3, time.Timer timer{
+
+    void Coordinator:method(){
+
+      transfer int array[5000]
+
+      random.setSeed(dateUtil.toMilliseconds(cal.getTime()))
+
+      for(int i = 0; i < array.arrayLength; i++ ){
+          array[i]= random.get(10000)
+      }
+
+      intf1.method(array)
+
+      intf2.method(array)
+
+      intf3.method(array)
+
+    }
+
+}

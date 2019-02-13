@@ -10,9 +10,12 @@ add_proxy |../pal/monitoring/proxies/Interface3Proxy.o|*(*:interface3.Interface3
 
 add_proxy |../pal/monitoring/proxies/Interface1Proxy.o|*(*:interface1.Interface1[0]:*)|../pal/monitoring/proxies/Interface2Proxy.o|*(*:interface2.Interface2[0]:*)|../pal/monitoring/proxies/Interface3Proxy.o|*(*:interface3.Interface3[0]:*)|
 
-add_proxy |../pal/monitoring/proxies/Interface1Proxy.o,../pal/monitoring/proxies/Interface2Proxy.o,../pal/monitoring/proxies/Interface3Proxy.o|*(*:interface1.Interface1[0]:*,*:interface2.Interface2[1]:*,*:interface3.Interface3[2]:*);| 
+add_proxy |../pal/monitoring/proxies/Interface1Proxy.o,../pal/monitoring/proxies/Interface2Proxy.o,../pal/monitoring/proxies/Interface3Proxy.o|*(*:interface1.Interface1[0]:*,*:interface2.Interface2[1]:*,*:interface3.Interface3[2]:*);|
 
 
 get_proxies
 
 get_perception_data
+
+
+add_proxy |../pal/monitoring/proxies/CoordinatorProxy.o|*(*:coordinator.Coordinator[0]:*)|

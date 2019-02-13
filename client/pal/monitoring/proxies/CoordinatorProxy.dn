@@ -1,0 +1,59 @@
+// HTTPProxy
+//
+// Proxy that monitors response time from HTTPHandlers
+//
+// Author: Roberto Rodrigues Filho
+// February @ 2017
+uses time.DateTime
+
+const char debugMSG[] = "[@CoordinatorProxy]"
+
+component provides coordinator.Coordinator, monitoring.BeingMonitored requires io.Output out,
+	 coordinator.Coordinator, monitoring.Container, time.Calendar cal, time.DateUtil dateUtil {
+
+	static Container monitor
+
+	implementation BeingMonitored {
+		Event[] BeingMonitored:getEvents() {
+			if (monitor == null) { monitor = new Container() }
+			return monitor.getEvents()
+		}
+
+		Metric[] BeingMonitored:getMetrics() {
+			if (monitor == null) { monitor = new Container() }
+			return monitor.getMetrics()
+		}
+
+		void BeingMonitored:turnMonitorOn() {
+			if (monitor == null) { monitor = new Container() }
+			monitor.turnMonitorOn()
+		}
+
+		void BeingMonitored:turnMonitorOff() {
+			if (monitor == null) { monitor = new Container() }
+			monitor.turnMonitorOff()
+		}
+	}
+
+	implementation Coordinator {
+		Coordinator real = new Coordinator()
+
+		void Coordinator:method() {
+
+			if (monitor == null) {
+				monitor = new Container()
+				monitor.turnMonitorOn()
+			}
+
+			DateTime dateStart = cal.getTime()
+
+			real.method()
+
+			DateTime dateEnd = cal.getTime()
+			DateTime dateDiff = dateUtil.diff(dateStart, dateEnd)
+
+			monitor.addMetric("response_time", dateUtil.toMilliseconds(dateDiff), false)
+			monitor.addEvent("event_example", 1)
+		}
+	}
+}

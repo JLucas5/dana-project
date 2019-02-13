@@ -1,13 +1,14 @@
-component provides Interface1 requires io.Output out{
+component provides Interface1 requires io.Output out, time.Timer timer{
 
-  int[] Interface1:method(int array[], Thread thread){
+  int[] Interface1:method(int array[]){
 
     int thisArray[] = clone array
 
     for(int i = 0; i < thisArray.arrayLength; i++){
       thisArray[i] = thisArray[i]/2
-        }
-    thread.signal()
+    }
+
+    out.println("terminou1")
     return thisArray
   }
 }
